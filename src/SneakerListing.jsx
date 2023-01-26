@@ -1,4 +1,4 @@
-// components/SneakerListing.js
+/ components/SneakerListing.js
 import React from 'react';
 
 function SneakerListing({sneaker}) {
@@ -11,7 +11,7 @@ function SneakerListing({sneaker}) {
     return (
         <div className="sneaker-listing">
 
-            {/* <img src={sneaker.image} alt={sneaker.model} /> */}
+            {<img src={sneaker.image} alt={sneaker.model} />}
             <p>{sneaker.name}</p>
             <p>{sneaker.price}</p>
             <p>{sneaker.release_date}</p>
