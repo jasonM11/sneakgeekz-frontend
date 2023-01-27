@@ -1,25 +1,33 @@
 
-import './App.css';
-import Header from './Header';
+import React, {useEffect, useState} from "react";
+import { Routes, Route, Outlet, Link } from "react-router-dom";
+import Layout from './Layout';
 import SneakerContainer from './SneakerContainer';
+import './App.css';
+// import About from './About';
+import WishList from './WishList';
 
 function App() {
-  return (
-    <>
-      <div class="header">
-        <a href="#default" class="logo">Sneakgeeks</a>
-        <div class="header-right">
-          <a class="active" href="#home">❤️</a>
-          <a href="#contact">Contact</a>
-          <a href="#about">About</a>
-        </div>
-      </div>
-      <Header/>
-      
-      
-      <SneakerContainer/>
-    </>
-  );
+
+  const [sneakers, setSneakers] = useState([])
+// console.log(sneakers)
+    useEffect(() => {
+        fetch('http://localhost:9292/sneakers')
+        .then(response => response.json())
+        .then(sneakers => setSneakers(sneakers))
+    }, [])
+
+return (
+  <div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+          <Route path="/" element={<SneakerContainer sneakers={sneakers} setSneakers={setSneakers} />} />
+          <Route path="/sneakers" element={<SneakerContainer sneakers={sneakers} setSneakers={setSneakers} />} />
+          <Route path="/wishlist" element={<WishList sneakers={sneakers} setSneakers={setSneakers}/>} />
+      </Route>
+    </Routes>
+  </div>
+);
 }
 
 export default App;

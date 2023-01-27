@@ -3,7 +3,7 @@
 import SneakerListing from "./SneakerListing";
 import { useEffect, useState } from "react";
 
-function SneakerContainer({}) {
+function SneakerContainer({sneakers, setSneakers}) {
     
     // const fetchSneakers = async () => {
     //     try {
@@ -14,27 +14,18 @@ function SneakerContainer({}) {
     //     }
     // }
 
-    const [sneakers, setSneakers] = useState([])
-
-    useEffect(() => {
-        fetch('http://localhost:9292/sneakers')
-        .then(response => response.json())
-        .then(sneakers => setSneakers(sneakers))
-    }, [])
-
-    console.log(sneakers)
+    // console.log(sneakers)
 
     const sneakerList = sneakers.map((sneaker) => (
         <li key={sneaker.id}>
             <SneakerListing sneaker={sneaker} />
-            {/* <button onClick={() => onRemove(sneaker.id)}>Remove</button> */}
         </li>
       ))
 
     return(
-        <>
+        <div className="SneakerContainer">
         {sneakerList}
-        </>
+        </div>
     )
 
 }

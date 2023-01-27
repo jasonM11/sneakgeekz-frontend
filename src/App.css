@@ -92,3 +92,57 @@
         float: none;
       }
     }
+.sneaker-listing{
+
+  width: 25%;
+  height: 400px;
+  float: left;
+  flex-wrap: auto;
+  flex: wrap;
+  margin: 10;
+  border: #282c34;
+  border-radius: 10%;
+  box-shadow: #141414;
+  width: 300px;
+    border: 5px solid green;
+    padding: 10px;
+    margin: 10px;
+    box-sizing: border-box;
+    
+  
+
+}
+.sneaker-container{
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+
+img{
+  width:150px;
+  border: #282c34;
+    width: 160px;
+      
+      padding: 20px;
+      margin: 20px;
+}
+
+li{
+  list-style: none;
+}
+
+
+form{
+  position: relative;
+  border-style: double;
+  width: 400px;
+  left : 30%;
+}
+
+h1{
+  align-content: center;
+  align-self: baseline;
+  align-items: center;
+  -ms-flex-align: center;
+
+}
